@@ -3,6 +3,8 @@ let opponentChoice;
 let changePlayerHand;
 let changeOpponentHand;
 let comparePlayerOpponent;
+let roundTracker = 0;
+let increaseRounds;
 
 let playerHand = document.getElementById("player-hand");
 let opponentHand = document.getElementById("opponent-hand");
@@ -12,7 +14,7 @@ let opponentScore = document.getElementById("opponent-score");
 
 let wonOrLostMsg = document.getElementById("wonOrLost-msg");
 let resultExplanation = document.getElementById("result-explanation");
-let roundIndication = document.getElementById("document-indication");
+let roundIndication = document.getElementById("round-indication");
 
 let possibleChoices = document.querySelectorAll(".player-choice");
 let resetBttn = document.getElementById("reset");
@@ -23,6 +25,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     changePlayerHand();
     changeOpponentHand();
     comparePlayerOpponent();
+    increaseRounds();
 }));
 
 changePlayerHand = () => {
@@ -92,4 +95,9 @@ comparePlayerOpponent = () => {
             resultExplanation.innerHTML = "it's a tie";
             break;
     }
+}
+
+increaseRounds = () => {
+    roundTracker += 1;
+    roundIndication.innerHTML = "round " + roundTracker;
 }
