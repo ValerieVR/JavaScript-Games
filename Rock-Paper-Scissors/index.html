@@ -8,6 +8,30 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <h1>ROCK PAPER SSCISSORS</h1>
+    <div class="RPS-game">
+        <div class="RPS-player">
+           <p>YOU</p> 
+           <img id="player-hand" src="images/start-left.PNG" alt="player hand">
+           <p id="player-score"></p>
+        </div>
+        <div class="RPS-result">
+            <div id="wonOrLost-msg"></div>
+            <div id="result-explanation"></div>
+            <div id="round-indication"></div>
+        </div>
+        <div class="RPS-opponent">
+            <p>OPPONENT</p>
+            <img id="opponent-hand" src="images/start-left.PNG" alt="opponent hand">
+            <p id="opponent-score"></p>
+        </div>
+        <div class="RPS-buttons">
+            <button class="player-choice">ROCK</button>
+            <button class="player-choice">PAPER</button>
+            <button class="player-choice">SCISSORS</button>
+            <button id="reset">PLAY AGAIN</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
