@@ -8,6 +8,7 @@ let increasePlayerScore;
 let increaseOpponentScore; 
 let showResetBttn;
 let hideResetBttn;
+let resetGame;
 let roundTracker = 0;
 let playerScoreTracker = 0;
 let opponentScoreTracker = 0;
@@ -34,6 +35,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     increaseRounds();
     showResetBttn();
     hideResetBttn();
+    resetGame();
 }));
 
 changePlayerHand = () => {
@@ -141,6 +143,21 @@ hideResetBttn = () => {
         possibleChoices.forEach(possibleChoice => {
             possibleChoice.disabled = false;
         });
-    })
+    });
+}
+
+resetGame = () => {
+    resetBttn.addEventListener("click", () => {
+        roundTracker = 0;
+        playerScoreTracker = 0;
+        opponentScoreTracker = 0;
+        playerScore.innerHTML = 0;
+        opponentScore.innerHTML = 0;
+        wonOrLostMsg.innerHTML = "let's play";
+        resultExplanation.innerHTML = "beat your opponent in 10 rounds";
+        roundIndication.innerHTML = "";
+        playerHand.src="images/start-left.png";
+        opponentHand.src="images/start-right.png";
+    });
 }
 
