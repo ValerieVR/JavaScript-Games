@@ -2,7 +2,7 @@ let playerChoice;
 let opponentChoice;
 let changePlayerHand;
 let changeOpponentHand;
-let randomNum;
+let comparePlayerOpponent;
 
 let playerHand = document.getElementById("player-hand");
 let opponentHand = document.getElementById("opponent-hand");
@@ -19,9 +19,10 @@ let resetBttn = document.getElementById("reset");
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", e => {
     playerChoice = e.target.id;
-    randomNum = Math.floor(Math.random() * 3) + 1; 
+    opponentChoice = Math.floor(Math.random() * 3) + 1; 
     changePlayerHand();
     changeOpponentHand();
+    comparePlayerOpponent();
 }));
 
 changePlayerHand = () => {
@@ -39,7 +40,7 @@ changePlayerHand = () => {
 }
 
 changeOpponentHand = () => {
-    switch (randomNum) {
+    switch (opponentChoice) {
         case 1:
             opponentHand.src="images/rock-right.png";
             break;
@@ -48,6 +49,47 @@ changeOpponentHand = () => {
             break;
         case 3:
             opponentHand.src="images/scissors-right.png";
+            break;
+    }
+}
+
+comparePlayerOpponent = () => {
+    switch (true) {
+        case playerChoice == "rock" && opponentChoice == 1:
+            wonOrLostMsg.innerHTML = "nobody wins";
+            resultExplanation.innerHTML = "it's a tie";
+            break;
+        case playerChoice == "rock" && opponentChoice == 2:
+            wonOrLostMsg.innerHTML = "you lose";
+            resultExplanation.innerHTML = "paper wraps rock";
+            break;
+        case playerChoice == "rock" && opponentChoice == 3:
+            wonOrLostMsg.innerHTML = "you win";
+            resultExplanation.innerHTML = "rock blunts scissors";
+            break;
+        case playerChoice == "paper" && opponentChoice == 1:
+            wonOrLostMsg.innerHTML = "you win";
+            resultExplanation.innerHTML = "paper wraps rock";
+            break;
+        case playerChoice == "paper" && opponentChoice == 2:
+            wonOrLostMsg.innerHTML = "nobody wins";
+            resultExplanation.innerHTML = "it's a tie";
+            break;
+        case playerChoice == "paper" && opponentChoice == 3:
+            wonOrLostMsg.innerHTML = "you lose";
+            resultExplanation.innerHTML = "scissors cut paper";
+            break;
+        case playerChoice == "scissors" && opponentChoice == 1:
+            wonOrLostMsg.innerHTML = "you lose";
+            resultExplanation.innerHTML = "rock blunts scissors";
+            break;
+        case playerChoice == "scissors" && opponentChoice == 2:
+            wonOrLostMsg.innerHTML = "you win";
+            resultExplanation.innerHTML = "scissors cut paper";
+            break;
+        case playerChoice == "scissors" && opponentChoice == 3:
+            wonOrLostMsg.innerHTML = "nobody wins";
+            resultExplanation.innerHTML = "it's a tie";
             break;
     }
 }
