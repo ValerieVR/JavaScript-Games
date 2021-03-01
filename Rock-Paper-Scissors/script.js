@@ -3,8 +3,14 @@ let opponentChoice;
 let changePlayerHand;
 let changeOpponentHand;
 let comparePlayerOpponent;
-let roundTracker = 0;
 let increaseRounds;
+let increasePlayerScore;
+let increaseOpponentScore; 
+let showResetBttn;
+let hideResetBttn;
+let roundTracker = 0;
+let playerScoreTracker = 0;
+let opponentScoreTracker = 0;
 
 let playerHand = document.getElementById("player-hand");
 let opponentHand = document.getElementById("opponent-hand");
@@ -26,6 +32,8 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     changeOpponentHand();
     comparePlayerOpponent();
     increaseRounds();
+    showResetBttn();
+    hideResetBttn();
 }));
 
 changePlayerHand = () => {
@@ -65,14 +73,17 @@ comparePlayerOpponent = () => {
         case playerChoice == "rock" && opponentChoice == 2:
             wonOrLostMsg.innerHTML = "you lose";
             resultExplanation.innerHTML = "paper wraps rock";
+            increaseOpponentScore();
             break;
         case playerChoice == "rock" && opponentChoice == 3:
             wonOrLostMsg.innerHTML = "you win";
             resultExplanation.innerHTML = "rock blunts scissors";
+            increasePlayerScore();
             break;
         case playerChoice == "paper" && opponentChoice == 1:
             wonOrLostMsg.innerHTML = "you win";
             resultExplanation.innerHTML = "paper wraps rock";
+            increasePlayerScore();
             break;
         case playerChoice == "paper" && opponentChoice == 2:
             wonOrLostMsg.innerHTML = "nobody wins";
@@ -81,14 +92,17 @@ comparePlayerOpponent = () => {
         case playerChoice == "paper" && opponentChoice == 3:
             wonOrLostMsg.innerHTML = "you lose";
             resultExplanation.innerHTML = "scissors cut paper";
+            increaseOpponentScore();
             break;
         case playerChoice == "scissors" && opponentChoice == 1:
             wonOrLostMsg.innerHTML = "you lose";
             resultExplanation.innerHTML = "rock blunts scissors";
+            increaseOpponentScore();
             break;
         case playerChoice == "scissors" && opponentChoice == 2:
             wonOrLostMsg.innerHTML = "you win";
             resultExplanation.innerHTML = "scissors cut paper";
+            increasePlayerScore();
             break;
         case playerChoice == "scissors" && opponentChoice == 3:
             wonOrLostMsg.innerHTML = "nobody wins";
@@ -101,3 +115,32 @@ increaseRounds = () => {
     roundTracker += 1;
     roundIndication.innerHTML = "round " + roundTracker;
 }
+
+increasePlayerScore = () => {
+    playerScoreTracker += 1;
+    playerScore.innerHTML = playerScoreTracker;
+}
+
+increaseOpponentScore = () => {
+    opponentScoreTracker += 1;
+    opponentScore.innerHTML = opponentScoreTracker;
+}
+
+showResetBttn = () => {
+   if (roundTracker == 10) {
+        resetBttn.style.display = "inline-block";
+        possibleChoices.forEach(possibleChoice => {
+            possibleChoice.disabled = true;
+        });
+   }
+}
+
+hideResetBttn = () => {
+    resetBttn.addEventListener("click", () => {
+        resetBttn.style.display = "none";
+        possibleChoices.forEach(possibleChoice => {
+            possibleChoice.disabled = false;
+        });
+    })
+}
+
