@@ -8,5 +8,7 @@ let wonOrLostMsg = document.getElementById("wonOrLost-msg");
 let resultExplanation = document.getElementById("result-explanation");
 let roundIndication = document.getElementById("document-indication");
 
-let playerChoices = document.querySelectorAll(".player-choice");
+let possibleChoices = document.querySelectorAll(".player-choice");
 let resetBttn = document.getElementById("reset");
+
+
