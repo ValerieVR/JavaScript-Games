@@ -8,27 +8,31 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>ROCK PAPER SSCISSORS</h1>
+    <h1>ROCK PAPER SCISSORS</h1>
     <div class="RPS-game">
-        <div class="RPS-player">
-           <p>YOU</p> 
-           <img id="player-hand" src="images/start-left.PNG" alt="player hand">
-           <p id="player-score">0</p>
-        </div>
-        <div class="RPS-result">
-            <div id="wonOrLost-msg">let's play</div>
-            <div id="result-explanation">beat your opponent in 10 rounds</div>
-            <div id="round-indication"></div>
-        </div>
-        <div class="RPS-opponent">
-            <p>OPPONENT</p>
-            <img id="opponent-hand" src="images/start-right.png" alt="opponent hand">
-            <p id="opponent-score">0</p>
+        <div class="RPS-display">
+            <div class="player">
+                <p>YOU</p> 
+                <img id="player-hand" src="images/start-left.PNG" alt="player hand">
+                <p id="player-score">0</p>
+            </div>
+            <div class="result">
+                <div id="wonOrLost-msg">let's play</div>
+                <div id="result-explanation">beat your opponent in 10 rounds</div>
+                <div id="round-indication"></div>
+            </div>
+            <div class="opponent">
+                <p>OPPONENT</p>
+                <img id="opponent-hand" src="images/start-right.png" alt="opponent hand">
+                <p id="opponent-score">0</p>
+            </div>
         </div>
         <div class="RPS-buttons">
             <button id="rock" class="player-choice">ROCK</button>
             <button id="paper" class="player-choice">PAPER</button>
-            <button id="scissors" class="player-choice">SCISSORS</button>
+            <button id="scissors" class="player-choice">SCISSORS</button><br>
+        </div>
+        <div class="reset-button">
             <button id="reset">PLAY AGAIN</button>
         </div>
     </div>
