@@ -6,11 +6,10 @@ let comparePlayerOpponent;
 let increaseRounds;
 let increasePlayerScore;
 let increaseOpponentScore; 
-// let showResetBttn;
-// let hideResetBttn;
 let showModal;
 let hideModal;
 let resetGame;
+let adjustGameOverMsg;
 let roundTracker = 0;
 let playerScoreTracker = 0;
 let opponentScoreTracker = 0;
@@ -29,6 +28,7 @@ let possibleChoices = document.querySelectorAll(".player-choice");
 let resetBttn = document.getElementById("reset");
 
 let modal = document.getElementsByClassName("modal")[0];
+let finalWinnerMsg = document.getElementById("finalWinner-msg");
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", e => {
     playerChoice = e.target.id;
@@ -37,11 +37,10 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     changeOpponentHand();
     comparePlayerOpponent();
     increaseRounds();
-    // showResetBttn();
-    // hideResetBttn();
     showModal();
     hideModal();
     resetGame();
+    adjustGameOverMsg();
 }));
 
 changePlayerHand = () => {
@@ -159,4 +158,23 @@ resetGame = () => {
         playerHand.src="images/start-left.png";
         opponentHand.src="images/start-right.png";
     });
+}
+
+adjustGameOverMsg = () => {
+    if (roundTracker == 10) {
+        switch (true) {
+            case playerScoreTracker > opponentScoreTracker:
+                finalWinnerMsg.innerHTML = "congratulations, you won!";
+                resetBttn.innerHTML = "play again";
+                break;
+            case playerScoreTracker < opponentScoreTracker:
+                finalWinnerMsg.innerHTML = "bummer, you lost!";
+                resetBttn.innerHTML = "try again";
+                break;
+            case playerScoreTracker == opponentScoreTracker:
+                finalWinnerMsg.innerHTML = "bummer, nobody wins!";
+                resetBttn.innerHTML = "try again";
+                break;
+        }
+    }
 }
