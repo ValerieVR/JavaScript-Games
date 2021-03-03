@@ -9,7 +9,7 @@ let increaseOpponentScore;
 let showModal;
 let hideModal;
 let resetGame;
-let adjustGameOverMsg;
+let customizeGameOverMsg;
 let roundTracker = 0;
 let playerScoreTracker = 0;
 let opponentScoreTracker = 0;
@@ -40,7 +40,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     showModal();
     hideModal();
     resetGame();
-    adjustGameOverMsg();
+    customizeGameOverMsg();
 }));
 
 changePlayerHand = () => {
@@ -160,7 +160,7 @@ resetGame = () => {
     });
 }
 
-adjustGameOverMsg = () => {
+customizeGameOverMsg = () => {
     if (roundTracker == 10) {
         switch (true) {
             case playerScoreTracker > opponentScoreTracker:
