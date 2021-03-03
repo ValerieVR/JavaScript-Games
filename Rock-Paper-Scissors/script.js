@@ -8,7 +8,9 @@ let increasePlayerScore;
 let increaseOpponentScore; 
 // let showResetBttn;
 // let hideResetBttn;
-// let resetGame;
+let showModal;
+let hideModal;
+let resetGame;
 let roundTracker = 0;
 let playerScoreTracker = 0;
 let opponentScoreTracker = 0;
@@ -26,6 +28,8 @@ let roundIndication = document.getElementById("round-indication");
 let possibleChoices = document.querySelectorAll(".player-choice");
 let resetBttn = document.getElementById("reset");
 
+let modal = document.getElementsByClassName("modal")[0];
+
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", e => {
     playerChoice = e.target.id;
     opponentChoice = Math.floor(Math.random() * 3) + 1; 
@@ -35,7 +39,9 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
     increaseRounds();
     // showResetBttn();
     // hideResetBttn();
-    // resetGame();
+    showModal();
+    hideModal();
+    resetGame();
 }));
 
 changePlayerHand = () => {
@@ -128,36 +134,29 @@ increaseOpponentScore = () => {
     opponentScore.innerHTML = opponentScoreTracker;
 }
 
-// showResetBttn = () => {
-//    if (roundTracker == 10) {
-//         resetBttn.style.display = "inline-block";
-//         possibleChoices.forEach(possibleChoice => {
-//             possibleChoice.disabled = true;
-//         });
-//    }
-// }
+showModal = () => {
+    if (roundTracker == 10) {
+        modal.style.display = "block";
+    }
+}
 
-// hideResetBttn = () => {
-//     resetBttn.addEventListener("click", () => {
-//         resetBttn.style.display = "none";
-//         possibleChoices.forEach(possibleChoice => {
-//             possibleChoice.disabled = false;
-//         });
-//     });
-// }
+hideModal = () => {
+    resetBttn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+}
 
-// resetGame = () => {
-//     resetBttn.addEventListener("click", () => {
-//         roundTracker = 0;
-//         playerScoreTracker = 0;
-//         opponentScoreTracker = 0;
-//         playerScore.innerHTML = 0;
-//         opponentScore.innerHTML = 0;
-//         wonOrLostMsg.innerHTML = "let's play";
-//         resultExplanation.innerHTML = "beat your opponent in 10 rounds";
-//         roundIndication.innerHTML = "";
-//         playerHand.src="images/start-left.png";
-//         opponentHand.src="images/start-right.png";
-//     });
-// }
-
+resetGame = () => {
+    resetBttn.addEventListener("click", () => {
+        roundTracker = 0;
+        playerScoreTracker = 0;
+        opponentScoreTracker = 0;
+        playerScore.innerHTML = 0;
+        opponentScore.innerHTML = 0;
+        wonOrLostMsg.innerHTML = "let's play";
+        resultExplanation.innerHTML = "beat your opponent in 10 rounds";
+        roundIndication.innerHTML = "";
+        playerHand.src="images/start-left.png";
+        opponentHand.src="images/start-right.png";
+    });
+}
