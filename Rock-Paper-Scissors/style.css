@@ -68,16 +68,6 @@ h1 {
     outline: none;
 }
 
-/* #reset {
-    width: 110px;
-    height: 40px;
-    margin-top: 5px;
-    font-size: 15px;
-    background-color: #FFC9C9;
-    outline: none;
-    display: none;
-} */
-
 .modal {
     /* display: none; */
     position: fixed;
