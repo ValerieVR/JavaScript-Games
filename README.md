@@ -5,5 +5,6 @@ Games coded in vanilla JavaScript
 ![](Rock-Paper-Scissors/images/RPS.gif)
 
 ## :wrench: Tools
+- HTML, CSS, JavaScript
 - Visual Studio Code
 - ScreenToGif
