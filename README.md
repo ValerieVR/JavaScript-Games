@@ -2,4 +2,4 @@
 Games coded in vanilla JavaScript
 
 ## :punch: :hand: :v: Rock Paper Scissors
-![](RPS.gif)
+![](Rock-Paper-Scissors/images/RPS.gif)
